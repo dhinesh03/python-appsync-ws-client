@@ -30,7 +30,7 @@ class GraphQLWebSocketClient:
         auth_info = self.auth_function()
         headers_encoded = base64.b64encode(json.dumps(auth_info).encode()).decode()
         all_url = f"{self.url}?header={headers_encoded}&payload={base64.b64encode(json.dumps({}).encode()).decode()}"
-        logger.debug(f"WebSocket URL: {all_url}")
+        logger.info(f"WebSocket URL: {all_url}")
         return all_url
 
     def connect(self):
