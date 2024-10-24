@@ -21,7 +21,7 @@ class GraphQLWebSocketClient:
         self._acknowledged_event = threading.Event()
         self.max_retries = max_retries
         self.retry_count = 0
-        self.lock = threading.Lock()
+        self.lock = threading.RLock()
 
     def _build_ws_url(self) -> str:
         """
